@@ -1,0 +1,21 @@
+name: Package Layer
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build Image
+      run: make docker_build
+    - name: Package Layer
+      run: make package_layer
+    
+    - uses: actions/upload-artifact@v1
+      with:
+      name: swift-lambda-runtime-5-1-2.zip
+      path: .build/layer/swift-lambda-runtime-5-1-2.zip
