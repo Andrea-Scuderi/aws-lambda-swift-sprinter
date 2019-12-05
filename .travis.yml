@@ -24,3 +24,11 @@ script:
   - make swift_test
   - make swift_test SWIFT_EXECUTABLE=HTTPSRequest SWIFT_PROJECT_PATH=Examples/HTTPSRequest LAMBDA_FUNCTION_NAME=HTTPSRequest LAMBDA_HANDLER=HTTPSRequest.getHttps
   - make swift_test SWIFT_EXECUTABLE=S3Test SWIFT_PROJECT_PATH=Examples/S3Test LAMBDA_FUNCTION_NAME=S3Test LAMBDA_HANDLER=S3Test.getObject
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "FsOo50E42QU2ysSFivh+efFRhfqFp1YZ1c5vjmypQ8ZuoC2NruXoyYK//4KsIrK2ZQjqpUoc3pW0lLpDtHD4/U+2phFjqdefPcO7PW73NZnWxN82jdj/6+h1xsgHJKyJ+RBYAQFz2x8n5AdyNd3Nu3zWxvFDhJ7JBo2nKcIZDkEtfmOo40HQ32QjAW4BS0NgpqzSnxvEWR6BEFwcIvkUD0R1wLfaQej7r5BhN8dMxkhH5cBArsuzv3VatCZX67PszhKE96cwTX2rnvRZLsXIW7X2+jwB114fYAezp7JJOMH9jvFIbGBtSOvl4xYegr2dLBQ/12QNHniK77XI0jVlHG6uDvqPVtxfep+4odY4AAWZfW73q1XIZM4RGu6fN2703VXu3VFrgN+8zMQBOhSGSHXPhLeaPrpANDtoO4Wdvs7Zp7zWXuCtFUMy2+IjwSIxKAEe6f+ODfsdbzbQxI51Al6h3LrcC3HrvaGBK9bxKzv4M6FCuSzHDjZDNzOhvcN7uX5lkQla/3WVn2Vt5PaLnQOS/gg8DYS/+ZybprLDAgn6R9Qk2oZxuiv5BKMvo4nvhB1NBoAdpklxWfMOSOX9/C540NFlxudVLnjA5cJxtsMgaO37aLcHEw7eCC4ehCepZ28L7BFq8fsRpj8nKaJeH8lAZz6WOW+sVx9Es02CuuE="
+  file: "/.build/layer/swift-lambda-runtime-5-1-2.zip"
+  skip_cleanup: true
+  draft: true
